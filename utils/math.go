@@ -25,6 +25,14 @@ func Float64ToString(input_num float64) string {
 	return strconv.FormatFloat(input_num, 'f', 6, 64)
 }
 
+func Float64sToStrings(input_nums []float64) []string {
+	var res []string
+	for _, f := range input_nums {
+		res = append(res, Float64ToString(f))
+	}
+	return res
+}
+
 func StrToFloat64(input_num string) float64 {
 	value, _ := strconv.ParseFloat(input_num, 64)
 	return value
