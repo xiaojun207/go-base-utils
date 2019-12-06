@@ -51,3 +51,7 @@ func StrToBool(inputValue string) bool {
 func Random(start float64, end float64) float64 {
 	return start + rand.Float64()*(end-start)
 }
+
+func Int64ToStr(i int64) string {
+	return strconv.FormatInt(i, 10)
+}
