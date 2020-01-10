@@ -1,9 +1,11 @@
 package utils
 
 import (
+	"encoding/binary"
 	"math"
 	"math/rand"
 	"strconv"
+	"unsafe"
 )
 
 const (
@@ -54,4 +56,50 @@ func Random(start float64, end float64) float64 {
 
 func Int64ToStr(i int64) string {
 	return strconv.FormatInt(i, 10)
+}
+
+func Int2Byte(data int) (ret []byte) {
+	var len uintptr = unsafe.Sizeof(data)
+	ret = make([]byte, len)
+	var tmp int = 0xff
+	var index uint = 0
+	for index = 0; index < uint(len); index++ {
+		ret[index] = byte((tmp << (index * 8) & data) >> (index * 8))
+	}
+	return ret
+}
+
+func Byte2Int(data []byte) int {
+	var ret int = 0
+	var len int = len(data)
+	var i uint = 0
+	for i = 0; i < uint(len); i++ {
+		ret = ret | (int(data[i]) << (i * 8))
+	}
+	return ret
+}
+
+func Float32ToByte(float float32) []byte {
+	bits := math.Float32bits(float)
+	bytes := make([]byte, 4)
+	binary.LittleEndian.PutUint32(bytes, bits)
+
+	return bytes
+}
+
+func ByteToFloat32(bytes []byte) float32 {
+	bits := binary.LittleEndian.Uint32(bytes)
+	return math.Float32frombits(bits)
+}
+
+func Float64ToByte(float float64) []byte {
+	bits := math.Float64bits(float)
+	bytes := make([]byte, 8)
+	binary.LittleEndian.PutUint64(bytes, bits)
+	return bytes
+}
+
+func ByteToFloat64(bytes []byte) float64 {
+	bits := binary.LittleEndian.Uint64(bytes)
+	return math.Float64frombits(bits)
 }
