@@ -103,3 +103,16 @@ func ByteToFloat64(bytes []byte) float64 {
 	bits := binary.LittleEndian.Uint64(bytes)
 	return math.Float64frombits(bits)
 }
+
+func MaxInt64(a, b uint64) uint64 {
+	if a > b {
+		return a
+	}
+	return b
+}
+func MinInt64(a, b uint64) uint64 {
+	if a > b {
+		return a
+	}
+	return b
+}
