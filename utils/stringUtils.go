@@ -89,6 +89,11 @@ func Int64ToStr(num int64) string {
 	return strconv.FormatInt(num, 10)
 }
 
+// uint64到string
+func Uint64ToStr(num uint64) string {
+	return strconv.FormatUint(num, 10)
+}
+
 func Int2Byte(data int) (ret []byte) {
 	var len uintptr = unsafe.Sizeof(data)
 	ret = make([]byte, len)
