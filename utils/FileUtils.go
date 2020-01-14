@@ -31,7 +31,7 @@ func SaveToCsv(filename string, rows [][]string) {
 		buffer.WriteString(s)
 		buffer.WriteString("\r\n")
 	}
-	SaveToFile(filename+".csv", buffer.String()) //创建文件
+	SaveToFile(filename, buffer.String()) //创建文件
 }
 
 func AppendToCsv(filename string, row []string) {
@@ -53,7 +53,7 @@ func AppendFloatsToCsv(filename string, rows [][]float64) {
 		buffer.WriteString(s)
 		buffer.WriteString("\r\n")
 	}
-	SaveToFile(filename+".csv", buffer.String()) //创建文件
+	SaveToFile(filename, buffer.String()) //创建文件
 }
 
 func ReadFromCsv(filename string) [][]string {
