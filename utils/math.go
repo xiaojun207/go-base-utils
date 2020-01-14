@@ -1,10 +1,8 @@
 package utils
 
 import (
-	"encoding/binary"
 	"math"
 	"math/rand"
-	"unsafe"
 )
 
 const (
