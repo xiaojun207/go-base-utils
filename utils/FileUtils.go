@@ -59,7 +59,8 @@ func AppendFloatsToCsv(filename string, rows [][]float64) {
 func ReadFromCsv(filename string) [][]string {
 	f, err := os.Open(filename) //打开文件
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
+		return [][]string{}
 	}
 	defer f.Close()
 	r := csv.NewReader(f)
