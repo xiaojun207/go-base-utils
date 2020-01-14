@@ -56,7 +56,7 @@ func AppendFloatsToCsv(filename string, rows [][]float64) {
 	SaveToFile(filename+".csv", buffer.String()) //创建文件
 }
 
-func ReadFromCsv(filename string) {
+func ReadFromCsv(filename string) [][]string {
 	f, err := os.Open(filename) //打开文件
 	if err != nil {
 		log.Fatal(err)
@@ -64,15 +64,17 @@ func ReadFromCsv(filename string) {
 	defer f.Close()
 	r := csv.NewReader(f)
 	for {
-		record, err := r.Read()
+		recordAll, err := r.ReadAll()
 		if err == io.EOF {
 			break
 		}
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Println(record)
+
+		return recordAll
 	}
+	return [][]string{}
 }
 
 func ReadFileLast(filename string, readChannel chan string) {
