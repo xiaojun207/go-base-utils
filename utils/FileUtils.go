@@ -1,11 +1,15 @@
 package utils
 
 import (
+	"bufio"
 	"bytes"
+	"encoding/csv"
 	"fmt"
 	"io"
+	"log"
 	"os"
 	"strings"
+	"time"
 )
 
 func SaveToFile(filename string, context string) {
@@ -50,4 +54,46 @@ func AppendFloatsToCsv(filename string, rows [][]float64) {
 		buffer.WriteString("\r\n")
 	}
 	SaveToFile(filename+".csv", buffer.String()) //创建文件
+}
+
+func ReadFromCsv(filename string) {
+	f, err := os.Open(filename) //打开文件
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer f.Close()
+	r := csv.NewReader(f)
+	for {
+		record, err := r.Read()
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Println(record)
+	}
+}
+
+func ReadFileLast(filename string, readChannel chan string) {
+	f, err := os.Open(filename)
+	if err != nil {
+		panic(fmt.Sprintf("open file error:%s", err.Error()))
+	}
+	//移动到文件末尾
+	f.Seek(0, os.SEEK_END)
+	reader := bufio.NewReader(f)
+	for {
+		line, err := reader.ReadBytes('\n')
+		//fmt.Println(err)
+		if err == io.EOF {
+			time.Sleep(time.Second)
+			continue
+		} else if err != nil {
+			panic("ReadBytes error:" + err.Error())
+		}
+
+		lineStr := strings.TrimSpace(string(line))
+		readChannel <- lineStr
+	}
 }
