@@ -115,6 +115,16 @@ func Byte2Int(data []byte) int {
 	return ret
 }
 
+func ByteToUint64(data []byte) uint64 {
+	return binary.BigEndian.Uint64(data)
+}
+
+func Uint64ToByte(i uint64) []byte {
+	b := make([]byte, 8)
+	binary.BigEndian.PutUint64(b, i)
+	return b[:]
+}
+
 func Float32ToByte(float float32) []byte {
 	bits := math.Float32bits(float)
 	bytes := make([]byte, 4)
