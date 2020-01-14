@@ -78,6 +78,12 @@ func StrToInt64(input_num string) int64 {
 	return i
 }
 
+//string到uint64
+func StrToUint64(input_num string) uint64 {
+	i, _ := strconv.ParseUint(input_num, 10, 64)
+	return i
+}
+
 // int64到string
 func Int64ToStr(num int64) string {
 	return strconv.FormatInt(num, 10)
