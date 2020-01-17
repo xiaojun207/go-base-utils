@@ -29,3 +29,8 @@ func MinInt64(a, b uint64) uint64 {
 	}
 	return b
 }
+
+func FloatFloor(f float64, prec int) float64 {
+	l := math.Pow10(prec)
+	return math.Floor(f*l) / l
+}
