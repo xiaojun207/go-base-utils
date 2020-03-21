@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"crypto/cipher"
 	"crypto/des"
-	"fmt"
 )
 
 func padding(src []byte, blocksize int) []byte {
