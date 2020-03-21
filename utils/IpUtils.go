@@ -2,7 +2,6 @@ package utils
 
 import (
 	"errors"
-	"fmt"
 	"net"
 )
 
@@ -50,13 +49,4 @@ func getIpFromAddr(addr net.Addr) net.IP {
 	}
 
 	return ip
-}
-
-func main() {
-	ip, err := ExternalIP()
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	fmt.Println(ip.String())
 }

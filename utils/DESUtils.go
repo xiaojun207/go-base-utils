@@ -51,11 +51,3 @@ func Decrypt(src, key string) string {
 	res := DecryptDES(byteSrc, byteKey)
 	return string(res)
 }
-
-func main() {
-	src := "this is a test text"
-	key := "12345678"
-	x1 := Encrypt(src, key)
-	x2 := Decrypt(x1, key)
-	fmt.Print(string(x2))
-}
