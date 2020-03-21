@@ -10,6 +10,6 @@ func TestEncrypt(t *testing.T) {
 	key := "12345678"
 	x1 := Encrypt(src, key)
 	x2 := Decrypt(x1, key)
-	fmt.Print(x1)
-	fmt.Print(x2)
+	fmt.Println(x1)
+	fmt.Println(x2)
 }

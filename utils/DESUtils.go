@@ -4,6 +4,8 @@ import (
 	"bytes"
 	"crypto/cipher"
 	"crypto/des"
+	"encoding/base64"
+	"log"
 )
 
 func padding(src []byte, blocksize int) []byte {
@@ -41,11 +43,14 @@ func Encrypt(src, key string) string {
 	byteSrc := []byte(src)
 	byteKey := []byte(key)
 	res := EncryptDES(byteSrc, byteKey)
-	return string(res)
+	return base64.StdEncoding.EncodeToString(res)
 }
 
 func Decrypt(src, key string) string {
-	byteSrc := []byte(src)
+	byteSrc, err := base64.StdEncoding.DecodeString(src)
+	if err != nil {
+		log.Fatalln(err)
+	}
 	byteKey := []byte(key)
 	res := DecryptDES(byteSrc, byteKey)
 	return string(res)
