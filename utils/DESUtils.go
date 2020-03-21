@@ -38,10 +38,24 @@ func DecryptDES(src []byte, key []byte) []byte {
 	return src
 }
 
+func Encrypt(src, key string) string {
+	byteSrc := []byte(src)
+	byteKey := []byte(key)
+	res := EncryptDES(byteSrc, byteKey)
+	return string(res)
+}
+
+func Decrypt(src, key string) string {
+	byteSrc := []byte(src)
+	byteKey := []byte(key)
+	res := DecryptDES(byteSrc, byteKey)
+	return string(res)
+}
+
 func main() {
-	x := []byte("this is a test text")
-	key := []byte("12345678")
-	x1 := EncryptDES(x, key)
-	x2 := DecryptDES(x1, key)
+	src := "this is a test text"
+	key := "12345678"
+	x1 := Encrypt(src, key)
+	x2 := Decrypt(x1, key)
 	fmt.Print(string(x2))
 }
