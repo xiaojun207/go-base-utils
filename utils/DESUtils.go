@@ -39,6 +39,9 @@ func DecryptDES(src []byte, key []byte) []byte {
 	return src
 }
 
+/**
+key 必须是8位
+*/
 func Encrypt(src, key string) string {
 	byteSrc := []byte(src)
 	byteKey := []byte(key)
@@ -46,6 +49,9 @@ func Encrypt(src, key string) string {
 	return base64.StdEncoding.EncodeToString(res)
 }
 
+/**
+key 必须是8位
+*/
 func Decrypt(src, key string) string {
 	byteSrc, err := base64.StdEncoding.DecodeString(src)
 	if err != nil {
