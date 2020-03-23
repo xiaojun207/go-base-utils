@@ -42,7 +42,7 @@ func DecryptDES(src []byte, key []byte) []byte {
 /**
 key 必须是8位
 */
-func Encrypt(src, key string) string {
+func DESEncrypt(src, key string) string {
 	byteSrc := []byte(src)
 	byteKey := []byte(key)
 	res := EncryptDES(byteSrc, byteKey)
@@ -52,7 +52,7 @@ func Encrypt(src, key string) string {
 /**
 key 必须是8位
 */
-func Decrypt(src, key string) string {
+func DESDecrypt(src, key string) string {
 	byteSrc, err := base64.StdEncoding.DecodeString(src)
 	if err != nil {
 		log.Fatalln(err)
