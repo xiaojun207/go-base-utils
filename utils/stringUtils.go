@@ -62,14 +62,35 @@ func StrToFloat64(input_num string) float64 {
 	return value
 }
 
+func StrToFloat64Def(input_num string, defValue float64) float64 {
+	if input_num == "" {
+		return defValue
+	}
+	return StrToFloat64(input_num)
+}
+
 func StrToInt(input_num string) int {
 	res, _ := strconv.Atoi(input_num)
 	return res
 }
 
+func StrToIntDef(input_num string, defValue int) int {
+	if input_num == "" {
+		return defValue
+	}
+	return StrToInt(input_num)
+}
+
 func StrToBool(inputValue string) bool {
 	res, _ := strconv.ParseBool(inputValue)
 	return res
+}
+
+func StrToBoolDef(inputValue string, defValue bool) bool {
+	if inputValue == "" {
+		return defValue
+	}
+	return StrToBool(inputValue)
 }
 
 //string到int64
@@ -78,10 +99,24 @@ func StrToInt64(input_num string) int64 {
 	return i
 }
 
+func StrToInt64Def(inputValue string, defValue int64) int64 {
+	if inputValue == "" {
+		return defValue
+	}
+	return StrToInt64(inputValue)
+}
+
 //string到uint64
 func StrToUint64(input_num string) uint64 {
 	i, _ := strconv.ParseUint(input_num, 10, 64)
 	return i
+}
+
+func StrToUint64Def(inputValue string, defValue uint64) uint64 {
+	if inputValue == "" {
+		return defValue
+	}
+	return StrToUint64(inputValue)
 }
 
 // int64到string
