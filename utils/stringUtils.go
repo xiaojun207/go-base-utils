@@ -41,12 +41,12 @@ func ArrayContains(arr []string, s string) bool {
 //float32 转 String工具类，保留6位小数
 func Float32ToString(input_num float32) string {
 	// to convert a float number to a string
-	return strconv.FormatFloat(float64(input_num), 'f', 6, 64)
+	return strconv.FormatFloat(float64(input_num), 'f', 8, 64)
 }
 
 func Float64ToString(input_num float64) string {
 	// to convert a float number to a string
-	return strconv.FormatFloat(input_num, 'f', 6, 64)
+	return strconv.FormatFloat(input_num, 'f', 8, 64)
 }
 
 func Float64sToStrings(input_nums []float64) []string {
