@@ -49,6 +49,10 @@ func Float64ToString(input_num float64) string {
 	return strconv.FormatFloat(input_num, 'f', 8, 64)
 }
 
+func Float64ToStr(input_num float64, prec int) string {
+	return strconv.FormatFloat(input_num, 'f', prec, 64)
+}
+
 func Float64sToStrings(input_nums []float64) []string {
 	var res []string
 	for _, f := range input_nums {
