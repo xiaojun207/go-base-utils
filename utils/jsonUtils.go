@@ -46,3 +46,7 @@ func StructToJson(result interface{}) string {
 func JsonToStruct(jsonStr string, result interface{}) {
 	json.Unmarshal([]byte(jsonStr), &result)
 }
+
+func JsonBytesToStruct(jsonByte []byte, result interface{}) {
+	json.Unmarshal(jsonByte, &result)
+}
