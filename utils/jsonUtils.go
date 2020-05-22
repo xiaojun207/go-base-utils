@@ -15,6 +15,11 @@ func MapToStruct(m interface{}, s interface{}) error {
 	return nil
 }
 
+func StructToMap(s interface{}, m interface{}) error {
+	j, _ := json.Marshal(s)
+	return json.Unmarshal(j, &m)
+}
+
 func MapToJson(instance map[string]interface{}) string {
 	mapInstances := []map[string]interface{}{}
 	mapInstances = append(mapInstances, instance)
