@@ -60,6 +60,25 @@ func Float64sToStrings(input_nums []float64) []string {
 	return res
 }
 
+func StrArr2ToFloat(arr *[][]interface{}) {
+	for i, _ := range *arr {
+		for j, _ := range (*arr)[i] {
+			(*arr)[i][j] = StrToFloat64((*arr)[i][j].(string))
+		}
+	}
+}
+
+func StrArr2ToFloatArr2(arr [][]string) [][]float64 {
+	res := [][]float64{}
+	for i, _ := range arr {
+		res = append(res, []float64{})
+		for j, _ := range (arr)[i] {
+			res[i] = append(res[i], StrToFloat64((arr)[i][j]))
+		}
+	}
+	return res
+}
+
 func StrToFloat64(input_num string) float64 {
 	value, _ := strconv.ParseFloat(input_num, 64)
 	return value
