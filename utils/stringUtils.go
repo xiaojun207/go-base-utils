@@ -30,20 +30,20 @@ func Substring(source string, start int, end int) string {
 	return string(r[start:end])
 }
 
-func SubStrStart(s, subStart string) string {
-	a := strings.Index(s, subStart)
-	return Substring(s, a+len(subStart), len(s))
+func SubstrAfter(s, substr string) string {
+	a := strings.Index(s, substr)
+	return Substring(s, a+len(substr), len(s))
 }
 
-func SubStrEnd(s, subEnd string) string {
-	b := strings.Index(s, subEnd)
+func SubstrBefore(s, substr string) string {
+	b := strings.Index(s, substr)
 	return Substring(s, 0, b)
 }
 
-func SubStrBetween(s, subStart, subEnd string) string {
-	a := strings.Index(s, subStart)
-	b := strings.Index(s, subEnd)
-	return Substring(s, a+len(subStart), b)
+func SubstrBetween(s, afterStr, beforeStr string) string {
+	a := strings.Index(s, afterStr)
+	b := strings.Index(s, beforeStr)
+	return Substring(s, a+len(afterStr), b)
 }
 
 func ArrayContains(arr []string, s string) bool {
