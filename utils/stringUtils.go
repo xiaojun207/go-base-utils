@@ -4,6 +4,7 @@ import (
 	"encoding/binary"
 	"math"
 	"strconv"
+	"strings"
 	"unsafe"
 )
 
@@ -27,6 +28,22 @@ func Substring(source string, start int, end int) string {
 	}
 
 	return string(r[start:end])
+}
+
+func SubStrStart(s, subStart string) string {
+	a := strings.Index(s, subStart)
+	return Substring(s, a+len(subStart), len(s))
+}
+
+func SubStrEnd(s, subEnd string) string {
+	b := strings.Index(s, subEnd)
+	return Substring(s, 0, b)
+}
+
+func SubStrBetween(s, subStart, subEnd string) string {
+	a := strings.Index(s, subStart)
+	b := strings.Index(s, subEnd)
+	return Substring(s, a+len(subStart), b)
 }
 
 func ArrayContains(arr []string, s string) bool {
