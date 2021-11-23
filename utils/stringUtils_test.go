@@ -7,12 +7,12 @@ import (
 
 func TestSubBetween(t *testing.T) {
 	s := "<a>this is a test</a>"
-	tmp := SubStrBetween(s, "<a>", "</a>")
+	tmp := SubstrBetween(s, "<a>", "</a>")
 	log.Println(tmp)
 
-	tmp = SubStrStart(s, "<a>")
+	tmp = SubstrBefore(s, "<a>")
 	log.Println(tmp)
 
-	tmp = SubStrEnd(s, "</a>")
+	tmp = SubstrAfter(s, "</a>")
 	log.Println(tmp)
 }
