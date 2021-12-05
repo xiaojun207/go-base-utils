@@ -10,4 +10,5 @@
 * 6、文件读写单元，写入文本文件；
 * 7、DES加密，如：DESEncrypt，DESDecrypt；
 * 8、AES加密，如：AESEncrypt，AESDecrypt；
-* 9、日期单元，获取各种格式的当前日期，如：GetYYYYMMDDHHMMSS()；
+* 9、RSA加、解密，如: RSAEncrypt("明文","公钥字符串")、RSADecrypt("密文", "私钥字符串")
+* 10、日期单元，获取各种格式的当前日期，如：GetYYYYMMDDHHMMSS()；

@@ -8,6 +8,7 @@ import (
 	"encoding/pem"
 	"fmt"
 	"os"
+	"strings"
 )
 
 //生成RSA私钥和公钥，保存到文件中
@@ -64,8 +65,12 @@ func GenerateRSAKey(bits int) {
 // plainText 要加密的数据
 // path 公钥
 func RSAEncrypt(text string, rsaPublicKey string) string {
+	if !strings.HasPrefix(rsaPublicKey, "-----BEGIN RSA Public Key-----") {
+		rsaPublicKey = "-----BEGIN RSA Public Key-----\n" + rsaPublicKey + "\n-----END RSA Public Key-----"
+	}
+
 	//pem解码
-	block, _ := pem.Decode([]byte("-----BEGIN RSA Public Key-----\n" + rsaPublicKey + "\n-----END RSA Public Key-----"))
+	block, _ := pem.Decode([]byte(rsaPublicKey))
 	//x509解码
 
 	publicKeyInterface, err := x509.ParsePKIXPublicKey(block.Bytes)
@@ -88,8 +93,12 @@ func RSAEncrypt(text string, rsaPublicKey string) string {
 // rsaPrivateKey 私钥
 func RSADecrypt(text string, rsaPrivateKey string) string {
 	code, _ := base64.StdEncoding.DecodeString(text)
+
+	if !strings.HasPrefix(rsaPrivateKey, "-----BEGIN RSA Private Key-----") {
+		rsaPrivateKey = "-----BEGIN RSA Private Key-----\n" + rsaPrivateKey + "\n-----END RSA Private Key-----"
+	}
 	//pem解码
-	block, _ := pem.Decode([]byte("-----BEGIN RSA Private Key-----\n" + rsaPrivateKey + "\n-----END RSA Private Key-----"))
+	block, _ := pem.Decode([]byte(rsaPrivateKey))
 	//X509解码
 	privateKey, err := x509.ParsePKCS1PrivateKey(block.Bytes)
 	if err != nil {
