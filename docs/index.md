@@ -1,37 +1,28 @@
-## Welcome to GitHub Pages
+## Welcome to go-base-utils GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/xiaojun207/go-base-utils/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### 这是一个golang的基本工具utils
 
 ```markdown
-Syntax highlighted code block
+>包含功能：
+* 1、类型转换工具单元，Float32ToString、Float64ToString、StrToFloat64、StrToInt、StrToBool、Random
+* 2、struct、json、map的转换；
+* 3、字符串截取基本单元，SubstrBetween，SubstrAfter，SubstrBefore；
+* 4、http请求封装单元；
+* 5、随机单元，包含随机密码（多种组合形式），如：RandomPassword(16, "mix")，范围随机：Random(60.0, 100.0)；
+* 6、文件读写单元，写入文本文件；
+* 7、DES加密，如：DESEncrypt，DESDecrypt；
+* 8、AES加密，如：AESEncrypt，AESDecrypt；
+* 9、RSA加、解密，如: RSAEncrypt("明文","公钥字符串")、RSADecrypt("密文", "私钥字符串")
+* 10、日期单元，获取各种格式的当前日期，如：GetYYYYMMDDHHMMSS()；
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/xiaojun207/go-base-utils/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
 ### Support or Contact
+If you have any ideas or suggestions, please send an email to the following email:
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+email: xiaojun207@126.com
