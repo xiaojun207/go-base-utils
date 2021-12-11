@@ -1,7 +1,6 @@
 ## Welcome to go-base-utils GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/xiaojun207/go-base-utils/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
-
+This is a basic tool utils of golang. It can improve your development efficiency and includes some common functions.
 
 
 ### 这是一个golang的基本工具utils
