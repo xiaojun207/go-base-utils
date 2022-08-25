@@ -12,6 +12,6 @@ type Employee struct {
 
 func TestNewInterface(t *testing.T) {
 	data := "{\"firstName\": \"John\"}"
-	obj := NewInterface(reflect.TypeOf(Employee{}), []byte(data))
+	_, obj := NewInterface(reflect.TypeOf(Employee{}), []byte(data))
 	fmt.Println("Employee:", obj)
 }

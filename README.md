@@ -1,5 +1,8 @@
 # go-base-utils
 
+## min go sdk
+1.18
+
 ## 这是一个golang的基本工具utils
 >包含：
 * 1、类型转换工具单元，Float32ToString、Float64ToString、StrToFloat64、StrToInt、StrToBool、Random
@@ -15,3 +18,4 @@
 * 11、排序方法：SortInterface(arr []interface{}, by func(p, q *interface{}) bool) 或 SortArrMap(maps []map[string]interface{}, by func(a, b map[string]interface{}) bool)
 * 12、对象比较方法：CompareInterface(key string, a, b interface{}) (bool, interface{}, interface{})、CompareInter(a, b interface{})
 * 13、增加通过reflect反射方式实现：赋值、clone：NewInterface(typ reflect.Type, data []byte) interface{} 、DeepClone(src interface{}) interface{}
+* 14、增加SyncMap，使用泛型；
