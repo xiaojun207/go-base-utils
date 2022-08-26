@@ -19,16 +19,15 @@ Unicode编码中的汉字范围：	/^[\u2E80-\u9FFF]+$/
 */
 
 // password verify
-func VerifyPassworFormat(value string) bool {
-	//pattern := `\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*` //匹配电子邮箱
-	pattern := `^[0-9a-z][_.0-9a-z-]{0,31}@([0-9a-z][0-9a-z-]{0,30}[0-9a-z]\.){1,4}[a-z]{2,4}$`
+func PasswordFormat(value string) bool {
+	pattern := `^[a-zA-Z0-9_-]{6,32}$`
 
 	reg := regexp.MustCompile(pattern)
 	return reg.MatchString(value)
 }
 
 // email verify
-func VerifyEmailFormat(email string) bool {
+func EmailFormat(email string) bool {
 	//pattern := `\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*` //匹配电子邮箱
 	pattern := `^[0-9a-z][_.0-9a-z-]{0,31}@([0-9a-z][0-9a-z-]{0,30}[0-9a-z]\.){1,4}[a-z]{2,4}$`
 
@@ -37,7 +36,7 @@ func VerifyEmailFormat(email string) bool {
 }
 
 // mobile verify
-func VerifyMobileFormat(mobileNum string) bool {
+func MobileFormat(mobileNum string) bool {
 	regular := "^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\\d{8}$"
 
 	reg := regexp.MustCompile(regular)

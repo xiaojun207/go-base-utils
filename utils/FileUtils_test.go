@@ -28,12 +28,12 @@ func TestReadFromCsv(t *testing.T) {
 }
 
 func TestReadFileLast(t *testing.T) {
-	readChannel := make(chan string)
-	filename := "test" + ".csv"
-	go ReadFileLast(filename, readChannel)
-	for r := range readChannel {
-		fmt.Println(r)
-	}
+	//readChannel := make(chan string)
+	//filename := "test" + ".csv"
+	//go ReadFileLast(filename, readChannel)
+	//for r := range readChannel {
+	//	fmt.Println(r)
+	//}
 }
 
 func TestReadFromCsv2(t *testing.T) {

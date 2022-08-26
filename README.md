@@ -19,3 +19,4 @@
 * 12、对象比较方法：CompareInterface(key string, a, b interface{}) (bool, interface{}, interface{})、CompareInter(a, b interface{})
 * 13、增加通过reflect反射方式实现：赋值、clone：NewInterface(typ reflect.Type, data []byte) interface{} 、DeepClone(src interface{}) interface{}
 * 14、增加SyncMap，使用泛型；
+* 15、增加Array相关方法：IndexOf, Contains

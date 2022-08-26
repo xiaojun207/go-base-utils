@@ -18,7 +18,6 @@ func SaveToFile(filename string, context string) {
 		fmt.Println("open file is failed, err: ", err)
 		panic(err)
 	}
-	defer f.Close()
 	f.Seek(0, io.SeekEnd)
 
 	f.WriteString(context)
@@ -62,7 +61,6 @@ func ReadFromCsv(filename string) [][]string {
 		log.Println(err)
 		return [][]string{}
 	}
-	defer f.Close()
 	r := csv.NewReader(f)
 	for {
 		recordAll, err := r.ReadAll()
