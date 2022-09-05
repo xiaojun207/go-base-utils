@@ -82,7 +82,7 @@ func ReadFileLast(filename string, readChannel chan string) {
 		panic(fmt.Sprintf("open file error:%s", err.Error()))
 	}
 	//移动到文件末尾
-	f.Seek(0, os.SEEK_END)
+	f.Seek(0, io.SeekEnd)
 	reader := bufio.NewReader(f)
 	for {
 		line, err := reader.ReadBytes('\n')

@@ -3,7 +3,6 @@ package utils
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/goinggo/mapstructure"
 )
 
 // 参数s必须是指针
@@ -17,9 +16,9 @@ func MapToStruct(m interface{}, s interface{}) error {
 }
 
 func MapToStruct2(m interface{}, s interface{}) error {
-	err := mapstructure.Decode(m, s)
+	d, err := json.Marshal(m)
+	json.Unmarshal(d, s)
 	if err != nil {
-		fmt.Println(err)
 		return err
 	}
 	return nil
