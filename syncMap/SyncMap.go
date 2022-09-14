@@ -1,4 +1,4 @@
-package utils
+package syncMap
 
 import (
 	"sync"
@@ -62,7 +62,9 @@ func (e *SyncMap[K, V]) Store(key K, value V) {
 
 func (e *SyncMap[K, V]) Load(key K) (value V, ok bool) {
 	val, ok := e.Map.Load(key)
-	value = val.(V)
+	if ok {
+		value = val.(V)
+	}
 	return
 }
 
