@@ -1,9 +1,8 @@
 package array
 
 import (
+	"github.com/xiaojun207/go-base-utils/assert"
 	"testing"
-
-	"github.com/stretchr/testify/assert"
 )
 
 func TestIndexOf(t *testing.T) {

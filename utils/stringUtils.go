@@ -1,16 +1,13 @@
 package utils
 
 import (
-	"encoding/binary"
-	"math"
 	"strconv"
 	"strings"
-	"unsafe"
 )
 
-//获取source的子串,如果start小于0或者end大于source长度则返回""
-//start:开始index，从0开始，包括0
-//end:结束index，以end结束，但不包括end
+// 获取source的子串,如果start小于0或者end大于source长度则返回""
+// start:开始index，从0开始，包括0
+// end:结束index，以end结束，但不包括end
 func Substring(source string, start int, end int) string {
 	var r = []rune(source)
 	length := len(r)
@@ -55,7 +52,7 @@ func ArrayContains(arr []string, s string) bool {
 	return false
 }
 
-//float32 转 String工具类，保留6位小数
+// float32 转 String工具类，保留6位小数
 func Float32ToString(input_num float32) string {
 	// to convert a float number to a string
 	return strconv.FormatFloat(float64(input_num), 'f', -1, 64)
@@ -132,7 +129,7 @@ func StrToBoolDef(inputValue string, defValue bool) bool {
 	return StrToBool(inputValue)
 }
 
-//string到int64
+// string到int64
 func StrToInt64(input_num string) int64 {
 	i, _ := strconv.ParseInt(input_num, 10, 64)
 	return i
@@ -145,7 +142,7 @@ func StrToInt64Def(inputValue string, defValue int64) int64 {
 	return StrToInt64(inputValue)
 }
 
-//string到uint64
+// string到uint64
 func StrToUint64(input_num string) uint64 {
 	i, _ := strconv.ParseUint(input_num, 10, 64)
 	return i
@@ -166,70 +163,4 @@ func Int64ToStr(num int64) string {
 // uint64到string
 func Uint64ToStr(num uint64) string {
 	return strconv.FormatUint(num, 10)
-}
-
-func Int2Byte(data int) (ret []byte) {
-	var len uintptr = unsafe.Sizeof(data)
-	ret = make([]byte, len)
-	var tmp int = 0xff
-	var index uint = 0
-	for index = 0; index < uint(len); index++ {
-		ret[index] = byte((tmp << (index * 8) & data) >> (index * 8))
-	}
-	return ret
-}
-
-func Byte2Int(data []byte) int {
-	var ret int = 0
-	var len int = len(data)
-	var i uint = 0
-	for i = 0; i < uint(len); i++ {
-		ret = ret | (int(data[i]) << (i * 8))
-	}
-	return ret
-}
-
-func ByteToUint64(data []byte) uint64 {
-	return binary.BigEndian.Uint64(data)
-}
-
-func Uint64ToByte(i uint64) []byte {
-	b := make([]byte, 8)
-	binary.BigEndian.PutUint64(b, i)
-	return b[:]
-}
-
-func Int64ToBytes(i int64) []byte {
-	var buf = make([]byte, 8)
-	binary.BigEndian.PutUint64(buf, uint64(i))
-	return buf
-}
-
-func BytesToInt64(buf []byte) int64 {
-	return int64(binary.BigEndian.Uint64(buf))
-}
-
-func Float32ToByte(float float32) []byte {
-	bits := math.Float32bits(float)
-	bytes := make([]byte, 4)
-	binary.LittleEndian.PutUint32(bytes, bits)
-
-	return bytes
-}
-
-func ByteToFloat32(bytes []byte) float32 {
-	bits := binary.LittleEndian.Uint32(bytes)
-	return math.Float32frombits(bits)
-}
-
-func Float64ToByte(float float64) []byte {
-	bits := math.Float64bits(float)
-	bytes := make([]byte, 8)
-	binary.LittleEndian.PutUint64(bytes, bits)
-	return bytes
-}
-
-func ByteToFloat64(bytes []byte) float64 {
-	bits := binary.LittleEndian.Uint64(bytes)
-	return math.Float64frombits(bits)
 }
