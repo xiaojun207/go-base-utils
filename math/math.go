@@ -14,29 +14,16 @@ const (
 	INT_MIN          = ^INT_MAX
 )
 
-func MaxInt64(a, b uint64) uint64 {
-	if a > b {
-		return a
-	}
-	return b
-}
-func MinInt64(a, b uint64) uint64 {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 func FloatFloor(f float64, prec int) float64 {
 	l := math.Pow10(prec)
 	return math.Floor(f*l) / l
 }
 
-func Max[T int | int8 | int16 | int32 | int64 | float32 | float64](a, b T) T {
+func Max[T byte | int | int8 | int16 | int32 | int64 | uint8 | uint16 | uint32 | uint64 | float32 | float64](a, b T) T {
 	return T(math.Max(float64(a), float64(b)))
 }
 
-func Min[T int | int8 | int16 | int32 | int64 | float32 | float64](a, b T) T {
+func Min[T byte | int | int8 | int16 | int32 | int64 | uint8 | uint16 | uint32 | uint64 | float32 | float64](a, b T) T {
 	return T(math.Min(float64(a), float64(b)))
 }
 

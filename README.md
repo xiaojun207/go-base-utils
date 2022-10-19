@@ -4,6 +4,8 @@
 1.18
 
 ## 这是一个golang的基本工具utils
+零依赖，工具全部使用的是系统api
+
 >包含：
 * 1、类型转换工具单元，Float32ToString、Float64ToString、StrToFloat64、StrToInt、StrToBool、Random
 * 2、struct、json、map的转换；
