@@ -19,11 +19,11 @@ func FloatFloor(f float64, prec int) float64 {
 	return math.Floor(f*l) / l
 }
 
-func Max[T byte | int | int8 | int16 | int32 | int64 | uint8 | uint16 | uint32 | uint64 | float32 | float64](a, b T) T {
+func Max[T byte | int | int8 | int16 | int32 | int64 | uint16 | uint32 | uint64 | float32 | float64](a, b T) T {
 	return T(math.Max(float64(a), float64(b)))
 }
 
-func Min[T byte | int | int8 | int16 | int32 | int64 | uint8 | uint16 | uint32 | uint64 | float32 | float64](a, b T) T {
+func Min[T byte | int | int8 | int16 | int32 | int64 | uint16 | uint32 | uint64 | float32 | float64](a, b T) T {
 	return T(math.Min(float64(a), float64(b)))
 }
 
