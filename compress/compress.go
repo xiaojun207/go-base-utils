@@ -9,6 +9,29 @@ import (
 	"os"
 )
 
+func WriteToFile(fileName string, data []byte) error {
+	file, err := os.OpenFile(fileName, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0666)
+	if err != nil {
+		return err
+	}
+	writer := zlib.NewWriter(file)
+	writer.Write(data)
+	writer.Flush()
+	return writer.Close()
+}
+
+func ReadFromFile(fileName string) ([]byte, error) {
+	file, err := os.Open(fileName)
+	if err != nil {
+		return nil, err
+	}
+	r, err := zlib.NewReader(file)
+	if err != nil {
+		return nil, err
+	}
+	return io.ReadAll(r)
+}
+
 func ZlibCompressFile(src, dest string) error {
 	r, err := os.Open(src)
 	if err != nil {
