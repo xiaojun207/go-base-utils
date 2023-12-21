@@ -1,4 +1,8 @@
 # go-base-utils
+一个golang的常见功能函数的工具包
+
+## 项目地址
+https://github.com/xiaojun207/go-base-utils
 
 ## min go sdk
 1.18
