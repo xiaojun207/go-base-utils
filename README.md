@@ -1,5 +1,5 @@
 # go-base-utils
-一个golang的常见功能函数的工具包
+一个golang的常见功能函数的工具包，请大家star
 
 ## 项目地址
 https://github.com/xiaojun207/go-base-utils
@@ -26,3 +26,9 @@ https://github.com/xiaojun207/go-base-utils
 * 13、增加通过reflect反射方式实现：赋值、clone：NewInterface(typ reflect.Type, data []byte) interface{} 、DeepClone(src interface{}) interface{}
 * 14、增加SyncMap，使用泛型；
 * 15、增加Array相关方法：IndexOf, Contains
+
+## 说明
+上面列举的这些共函数，都是我在项目中使用的。如果没有你需要的方法，可以提交pr；
+
+## 联系
+邮箱：xiaojun207@126.com
